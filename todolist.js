@@ -7,7 +7,7 @@ function ajoutTodo() {
     let data = {
         description: todo.value
     }
-    fetch('http://thomasdelm.pythonanywhere.com/todo', {
+    fetch('https://thomasdelm.pythonanywhere.com/todo', {
         method: 'POST',
         headers: {
             "Content-type": 'application/json'
@@ -17,14 +17,14 @@ function ajoutTodo() {
 }
 
 function deleteTodo(indice) {
-    fetch('http://thomasdelm.pythonanywhere.com/todo/' + indice, {
+    fetch('https://thomasdelm.pythonanywhere.com/todo/' + indice, {
         method: 'DELETE'})
         .then(response => rafraichirHTML())
 }
 
 function rafraichirHTML() {
     todo.value = "";
-    fetch('http://thomasdelm.pythonanywhere.com/todo')
+    fetch('https://thomasdelm.pythonanywhere.com/todo')
         .then(response => response.json())
         .then(todolist => {
             elementTODOLIST.innerHTML= "";
